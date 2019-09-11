@@ -11,8 +11,7 @@ namespace ConsoleAppTP1
     {
         public static void Main(string[] args)
         {
-            SellerManager manager = new SellerManager();
-            manager.Run();
+            new SellerManager().Run();
         }
     }
 }

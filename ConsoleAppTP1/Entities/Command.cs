@@ -19,6 +19,7 @@ namespace ConsoleAppTP1.Entities
 
         public float? GetTotal()
         {
+            //Nullable float with ?
             float? result = null;
 
             if (this.Products.Count > 0)

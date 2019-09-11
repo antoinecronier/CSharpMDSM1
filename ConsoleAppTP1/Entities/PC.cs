@@ -13,6 +13,6 @@ namespace ConsoleAppTP1.Entities
         }
 
         public new float Price { get { return base.Price; } }
-        public new float Tva { get { return base.Price; } }
+        public new float Tva { get { return base.Tva; } }
     }
 }

@@ -10,10 +10,9 @@ namespace ConsoleAppTP1.Entities
     {
         public Bike() : base(150.00f, 12.5f)
         {
-
         }
 
         public new float Price { get { return base.Price; } }
-        public new float Tva { get { return base.Price; } }
+        public new float Tva { get { return base.Tva; } }
     }
 }

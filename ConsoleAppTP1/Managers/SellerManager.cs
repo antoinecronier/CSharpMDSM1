@@ -48,7 +48,8 @@ namespace ConsoleAppTP1.Managers
                     case 1:
                         if (products.OfType<Bike>().Any())
                         {
-                            Product product = products.Find(x => x.GetType().Name.Equals("Bike"));
+                            Product product = products.OfType<Bike>().FirstOrDefault();
+                            //Product product = products.Find(x => x.GetType().Name.Equals("Bike"));
                             command.Products.Add(product);
                             products.Remove(product);
                             Console.WriteLine("One more Bike added");
@@ -93,9 +94,24 @@ namespace ConsoleAppTP1.Managers
             ShowInfoTotal();
         }
 
+        //public void SelectOneFromList<T,K>(List<K> items, String stringItem)
+        //{
+        //    if (products.OfType<T>().Any())
+        //    {
+        //        Product product = products.Find(x => x is T);
+        //        command.Products.Add(product);
+        //        products.Remove(product);
+        //        Console.WriteLine("One more {0} added", stringItem);
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine("No more {0} evailable", stringItem);
+        //    }
+        //}
+
         private void ShowInfoTotal()
         {
-            Console.WriteLine("Your client currently have to payed {0} for :" +
+            Console.WriteLine("Your client currently have to payed {0} TTC for :" +
                 "\n{1} bike(s) : unit price {2} | tva {3} " +
                 "\n{4} smartphone(s) : unit price {5} | tva {6} " +
                 "\n{7} PC(s) : unit price {8} | tva {9} ",
