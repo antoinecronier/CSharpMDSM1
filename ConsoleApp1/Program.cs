@@ -1,5 +1,8 @@
 ﻿using ConsoleApp1.MonProjet;
-using ConsoleApp1.MonProjet.Polymorphisme;
+using ConsoleApp1.MonProjet.Polymorphism;
+using ConsoleApp1.MonProjet.SQLiteDb;
+using ConsoleApp1.MonProjet.SQLiteDb.Entities;
+using ConsoleApp1.MonProjet.SQLiteDb.Schemas;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,11 +25,34 @@ namespace ConsoleApp1
         /// <param name="args">Command ligne call args retreiver.</param>
         public static void Main(string[] args)
         {
-            String var = Program.ITEM_1;
-            Check(var);
-            StaticCheck();
-            SimpleClassPolymorphism();
+            //String var = Program.ITEM_1;
+            //Check(var);
+            //StaticCheck();
+            //SimpleClassPolymorphism();
+            //Polymorphism();
 
+            SQLiteManager<DbClass1> manager = new SQLiteManager<DbClass1>(Environment.CurrentDirectory + "\\myDb.sqlite");
+
+            foreach (var item in manager.Query< DbClass1>("SELECT * FROM " + DbClass1Schema.TABLE))
+            {
+                Console.WriteLine(item.ToString());
+            }
+
+            for (int i = 0; i < 10; i++)
+            {
+                manager.Insert(new DbClass1("test" + i + DateTime.Now, 10));
+            }
+
+            foreach (var item in manager.Query<DbClass1>("SELECT * FROM " + DbClass1Schema.TABLE))
+            {
+                Console.WriteLine(item.ToString());
+            }
+
+            Console.ReadKey();
+        }
+
+        private static void Polymorphism()
+        {
             Console.WriteLine("-------------------------------");
             // Cannot setup abstract class directly
             //AbstractMother mother = new AbstractMother();

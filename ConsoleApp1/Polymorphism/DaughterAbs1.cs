@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1.MonProjet.Polymorphisme
+namespace ConsoleApp1.MonProjet.Polymorphism
 {
     public class DaughterAbs1 : AbstractMother
     {
