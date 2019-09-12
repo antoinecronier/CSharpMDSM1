@@ -86,9 +86,11 @@ namespace Tp2.Managers
 
             Console.WriteLine("Select user to be :");
 
+            int i = 0;
             foreach (var item in manager.GetAllUser())
             {
-                Console.WriteLine("{0} : {1}", item.Id, item.Email);
+                Console.WriteLine("{0} : {1}", i, item.Email);
+                i++;
             }
 
             String selected = Console.ReadLine();

@@ -40,15 +40,14 @@ namespace Tp2.Entities
             get { return lastname; }
             set { lastname = value; }
         }
-
-        [Column(UserSchema.EMAIL)]
+        
+        [Column(UserSchema.EMAIL), NotNull, Unique]
         public String Email
         {
             get { return email; }
             set { email = value; }
         }
-
-        //[Column(UserSchema.ROLES)]
+        
         [ManyToMany(typeof(UserRole))]
         public List<Role> Roles
         {
