@@ -41,6 +41,11 @@ namespace Tp2.Database
             return SqliteManager.GetAllWithChildren<Comment>();
         }
 
+        public List<T> GetAll<T>() where T : class, new()
+        {
+            return SqliteManager.GetAllWithChildren<T>();
+        }
+
         public Role GetRoleByName(String name)
         {
             return SqliteManager.Query<Role>(SELECT_ALL + RoleSchema.WHERE_ROLE_NAME, name).First();
@@ -49,6 +54,11 @@ namespace Tp2.Database
         public User GetUserByEmail(String email)
         {
             return SqliteManager.Query<User>(SELECT_ALL + UserSchema.WHERE_USER_EMAIL, email).First();
+        }
+
+        public List<T> GetByField<T>(String field, String value) where T : class, new()
+        {
+            return SqliteManager.Query<T>(SELECT_ALL + " WHERE " + field + " = " + value);
         }
     }
 }

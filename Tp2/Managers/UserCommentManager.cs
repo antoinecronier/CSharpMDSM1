@@ -16,7 +16,7 @@ namespace Tp2.Managers
         {
             CreateBaseItems();
             short? selected = ShowMenuForSelect();
-            User user = manager.SqliteManager.Find<User>(selected);
+            User user = manager.GetAllUser().ElementAt((int)selected);
 
             while (ShowMenuForMessages(user) != "q"){}
             ShowUserHistoric(user);
@@ -41,7 +41,7 @@ namespace Tp2.Managers
             String message = Console.ReadLine();
             Console.WriteLine("Who need to receive message");
             short? selectedUser = ShowMenuForSelect();
-            Comment comment = new Comment() { CommentAt = DateTime.Now, Data = message, From = user, To = manager.SqliteManager.Find<User>(selectedUser) };
+            Comment comment = new Comment() { CommentAt = DateTime.Now, Data = message, From = user, To = manager.GetAllUser().ElementAt((int) selectedUser) };
 
             manager.Save(comment);
 
@@ -74,6 +74,7 @@ namespace Tp2.Managers
                     for (int j = 0; j < 3; j++)
                     {
                         Comment comment = new Comment() { CommentAt=DateTime.Now, Data="data"+i+j,From=users.ElementAt(i%2),To=users.ElementAt(j%3)};
+                        manager.Save(comment);
                     }
                 }
             }
