@@ -1,11 +1,11 @@
-﻿using ConsoleAppTP1.Entities;
+﻿using Tp1.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleAppTP1.Managers
+namespace Tp1.Managers
 {
     public class SellerManager
     {
