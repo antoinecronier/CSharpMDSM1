@@ -8,6 +8,14 @@ namespace Tp1.Entities
 {
     public abstract class Product
     {
+        private String name;
+
+        public String Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
         private float price;
 
         public float Price
@@ -24,10 +32,11 @@ namespace Tp1.Entities
             set { tva = value; }
         }
 
-        public Product(float price, float tva)
+        public Product(float price, float tva, String name)
         {
             this.price = price;
             this.tva = tva;
+            this.name = name;
         }
     }
 }

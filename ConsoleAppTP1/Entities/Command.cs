@@ -8,6 +8,23 @@ namespace Tp1.Entities
 {
     public class Command
     {
+        private DateTime commandAt;
+
+        public DateTime CommandAt
+        {
+            get { return commandAt; }
+            set { commandAt = value; }
+        }
+
+        private String name;
+
+        public String Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
+
         private readonly List<Product> products;
 
         public List<Product> Products => products;

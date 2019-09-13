@@ -10,7 +10,7 @@
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
-        <TextBox x:Name="txtBFirstname" Grid.Row="0" Text="{Binding Firstname, Mode=TwoWay}"></TextBox>
+        <TextBox x:Name="txtBFirstname" Grid.Row="0" Text="{Binding User.Firstname, Mode=TwoWay}"></TextBox>
         <TextBox x:Name="txtBLastname" Grid.Row="1"  Text="{Binding User.Lastname, Mode=TwoWay}"></TextBox>
     </Grid>
 </UserControl>
