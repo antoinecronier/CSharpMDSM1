@@ -3,6 +3,7 @@ using ConsoleApp1.MonProjet.Polymorphism;
 using ConsoleApp1.MonProjet.SQLiteDb;
 using ConsoleApp1.MonProjet.SQLiteDb.Entities;
 using ConsoleApp1.MonProjet.SQLiteDb.Schemas;
+using ConsoleApp1.MonProjet.WebService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,10 +31,19 @@ namespace ConsoleApp1
             //StaticCheck();
             //SimpleClassPolymorphism();
             //Polymorphism();
+            //SQlite();
 
+            WebServiceManager< post> manager = new WebServiceManager<post>("https://jsonplaceholder.typicode.com/");
+            post post = manager.Get(1).Result;
+            Console.WriteLine(post);
+            Console.ReadKey();
+        }
+
+        private static void SQlite()
+        {
             SQLiteManager<DbClass1> manager = new SQLiteManager<DbClass1>(Environment.CurrentDirectory + "\\myDb.sqlite");
 
-            foreach (var item in manager.Query< DbClass1>("SELECT * FROM " + DbClass1Schema.TABLE))
+            foreach (var item in manager.Query<DbClass1>("SELECT * FROM " + DbClass1Schema.TABLE))
             {
                 Console.WriteLine(item.ToString());
             }

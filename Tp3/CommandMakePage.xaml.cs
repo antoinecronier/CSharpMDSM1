@@ -139,11 +139,11 @@ namespace Tp3
 
         private void LessPc(object sender, RoutedEventArgs e)
         {
-            //if (NbPC - 1 != -1)
-            //{
+            if (NbPC - 1 != -1)
+            {
                 this.BaseWindow.SellerManager.Products.Add(new PC());
                 NbPC--;
-            //}
+            }
         }
 
         private void MoreSmartPhone(object sender, RoutedEventArgs e)
