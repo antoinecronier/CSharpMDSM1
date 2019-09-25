@@ -1,0 +1,66 @@
+﻿@model WebApplication1.Models.Class2
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Class2</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Class1.Data)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Class1.Data)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Item1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Item1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Item2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Item2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Item3)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Item3)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Item4)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Item4)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Item4Bis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Item4Bis)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

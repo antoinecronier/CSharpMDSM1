@@ -26,6 +26,10 @@ namespace ConsoleApp1
         /// <param name="args">Command ligne call args retreiver.</param>
         public static void Main(string[] args)
         {
+
+            Console.WriteLine(short.MinValue + " " + short.MaxValue);
+            Console.WriteLine("{1} {2} {3} {0} {4} {1} {2} {4}", "test", "bonjour", 10, true, "oui");
+            Console.ReadKey();
             //String var = Program.ITEM_1;
             //Check(var);
             //StaticCheck();
@@ -33,10 +37,10 @@ namespace ConsoleApp1
             //Polymorphism();
             //SQlite();
 
-            WebServiceManager< post> manager = new WebServiceManager<post>("https://jsonplaceholder.typicode.com/");
-            post post = manager.Get(1).Result;
-            Console.WriteLine(post);
-            Console.ReadKey();
+            //WebServiceManager< post> manager = new WebServiceManager<post>("https://jsonplaceholder.typicode.com/");
+            //post post = manager.Get(1).Result;
+            //Console.WriteLine(post);
+            //Console.ReadKey();
         }
 
         private static void SQlite()
@@ -181,7 +185,7 @@ namespace ConsoleApp1
         private static void PrintCoucou()
         {
             Console.WriteLine("coucou");
-            Console.ReadKey();
+            ConsoleKeyInfo info =  Console.ReadKey();
         }
 
         private static String findWord(String baseWord)

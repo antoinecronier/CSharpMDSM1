@@ -27,5 +27,10 @@ namespace ConsoleApp1.MonProjet.Polymorphism
         {
             Console.WriteLine("do6() from DaughterAbs1");
         }
+
+        public void do7()
+        {
+            Console.WriteLine("do7() from DaughterAbs1");
+        }
     }
 }
