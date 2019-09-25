@@ -18,7 +18,7 @@ namespace WebApplication1.Controllers
         // GET: Class2
         public async Task<ActionResult> Index()
         {
-            var class2 = db.Class2.Include(c => c.Class1);
+            var class2 = db.Class2.Include(c => c.Class1).Include(c => c.Class1s);
             return View(await class2.ToListAsync());
         }
 
@@ -41,6 +41,16 @@ namespace WebApplication1.Controllers
         public ActionResult Create()
         {
             ViewBag.IdClass1 = new SelectList(db.Class1, "Id", "Data");
+            List<SelectListItem> items = new List<SelectListItem>();
+            using (WebApplication1Context db = new WebApplication1Context())
+            {
+                foreach (var item in db.Class1.ToList())
+                {
+                    items.Add(new SelectListItem() { Text=item.Data, Value=item.Id.Value.ToString()});
+                }
+                
+                ViewBag.Class1s = items;
+            }
             return View();
         }
 
@@ -49,16 +59,30 @@ namespace WebApplication1.Controllers
         // plus de détails, voir  https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create([Bind(Include = "Id,Item1,Item2,Item3,Item4,Item4Bis,IdClass1")] Class2 class2)
+        public async Task<ActionResult> Create([Bind(Include = "Id,Item1,Item2,Item3,Item4,Item4Bis,IdClass1,Class1sIds")] Class2 class2)
         {
             if (ModelState.IsValid)
             {
+                foreach (var item in class2.Class1sIds)
+                {
+                    class2.Class1s.Add(db.Class1.Find(item));
+                }
                 db.Class2.Add(class2);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
 
             ViewBag.IdClass1 = new SelectList(db.Class1, "Id", "Data", class2.IdClass1);
+            List<SelectListItem> items = new List<SelectListItem>();
+            using (WebApplication1Context db = new WebApplication1Context())
+            {
+                foreach (var item in db.Class1.ToList())
+                {
+                    items.Add(new SelectListItem() { Text = item.Data, Value = item.Id.Value.ToString() });
+                }
+
+                ViewBag.Class1s = items;
+            }
             return View(class2);
         }
 

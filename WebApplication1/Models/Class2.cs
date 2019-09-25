@@ -88,14 +88,6 @@ namespace WebApplication1.Models
             set { item7 = value; }
         }
 
-        private ICollection<String> item8;
-
-        public ICollection<String> Item8
-        {
-            get { return item8; }
-            set { item8 = value; }
-        }
-
         private int? idClass1;
         
         public int? IdClass1
@@ -114,6 +106,14 @@ namespace WebApplication1.Models
             set { class1 = value; }
         }
 
+        private int?[] class1sIds;
+
+        public int?[] Class1sIds
+        {
+            get { return class1sIds; }
+            set { class1sIds = value; }
+        }
+
         private List<Class1> class1s;
 
         public List<Class1> Class1s
@@ -122,13 +122,11 @@ namespace WebApplication1.Models
             set { class1s = value; }
         }
 
-        private ICollection<Class1> class1sBis;
-
-        public ICollection<Class1> Class1sBis
+        public Class2()
         {
-            get { return class1sBis; }
-            set { class1sBis = value; }
+            this.Class1s = new List<Class1>();
+            this.Item5 = new List<int>();
+            this.Item7 = new Dictionary<string, string>();
         }
-
     }
 }
