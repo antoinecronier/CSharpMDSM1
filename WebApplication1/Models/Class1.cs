@@ -25,5 +25,14 @@ namespace WebApplication1.Models
             get { return data; }
             set { data = value; }
         }
+
+        private List<Class2> class2s;
+
+        public List<Class2> Class2s
+        {
+            get { return class2s; }
+            set { class2s = value; }
+        }
+
     }
 }

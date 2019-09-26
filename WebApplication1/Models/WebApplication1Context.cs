@@ -19,6 +19,19 @@ namespace WebApplication1.Models
         {
         }
 
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Class2>()
+                .HasMany<Class1>(x => x.Class1s)
+                .WithMany(x => x.Class2s)
+                .Map(x =>
+                {
+                    x.MapLeftKey("class1Id");
+                    x.MapRightKey("class2Id");
+                    x.ToTable("c12");
+                });
+        }
+
         public System.Data.Entity.DbSet<WebApplication1.Models.Class1> Class1 { get; set; }
         public System.Data.Entity.DbSet<WebApplication1.Models.Class2> Class2 { get; set; }
     }
