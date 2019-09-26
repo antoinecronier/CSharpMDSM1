@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace WebApplication1.Models
+namespace ClassLibrary1
 {
 
     public class Class1
@@ -34,5 +35,9 @@ namespace WebApplication1.Models
             set { class2s = value; }
         }
 
+        public override string ToString()
+        {
+            return JsonConvert.SerializeObject(this);
+        }
     }
 }

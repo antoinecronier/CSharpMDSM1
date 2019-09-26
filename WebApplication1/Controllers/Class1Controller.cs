@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using ClassLibrary1;
 using WebApplication1.Models;
 
 namespace WebApplication1.Controllers

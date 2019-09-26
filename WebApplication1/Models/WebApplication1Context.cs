@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassLibrary1;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -32,7 +33,7 @@ namespace WebApplication1.Models
                 });
         }
 
-        public System.Data.Entity.DbSet<WebApplication1.Models.Class1> Class1 { get; set; }
-        public System.Data.Entity.DbSet<WebApplication1.Models.Class2> Class2 { get; set; }
+        public System.Data.Entity.DbSet<Class1> Class1 { get; set; }
+        public System.Data.Entity.DbSet<Class2> Class2 { get; set; }
     }
 }

@@ -1,11 +1,13 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Text;
 using System.Web;
 
-namespace WebApplication1.Models
+namespace ClassLibrary1
 {
     public class Class2
     {
@@ -127,6 +129,11 @@ namespace WebApplication1.Models
             this.Class1s = new List<Class1>();
             this.Item5 = new List<int>();
             this.Item7 = new Dictionary<string, string>();
+        }
+
+        public override string ToString()
+        {
+            return JsonConvert.SerializeObject(this);
         }
     }
 }
